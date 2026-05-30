@@ -4,188 +4,293 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Manrope;
+    outline: none;
 }
 *::selection{
     background: #000;
     color: white;
 }
+:root{
+    --page-pad: clamp(20px,calc((100% - 1200px) / 2),calc((100% - 1200px) / 2));
+}
+a{text-decoration: none;}
+.asset1{
+    animation-name: rotateImg;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
 body{
     overflow-x: hidden;
     width: 100%;
     background-color: #FCFBF4;
-    padding: 50px clamp(20px,calc((100% - 1200px) / 2),calc((100% - 1200px) / 2));
+    padding: 50px 0;
+    background: #FCFBF4;
 }
-header{
-    width: 100%;
-    height: 90vh;
-    position: relative;
-}
-header h1{
-    font-size: clamp(40px, 6vw, 80px);
-    font-weight: 800;
-}
-header p{
-    font-size: clamp(10px,3vw,12px);
-    max-width: 400px;
-    width: 100%;
-    font-weight: 500;
-    text-align: justify;
-}
-header .divider{
-    position: absolute;
-    bottom: 0;
+.load-screen{
+    position: fixed;
+    top:0;
     left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    color: #FCFBF4;
+    z-index: 1000;
+    display: grid;
+    place-items: center;
+    font-size: 14px;
+    font-weight: 500;
+}
+.load-screen p{
+    display: flex;
 }
 
-.divider{
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #FCFBF4;
+    padding: 0 var(--page-pad);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
-    width: 100%;
+    z-index: 999;
 }
-.divider .line{
-    opacity: 0.7;
-    width:100%;
-    height: 1px;
-    background: #000;
+nav a{
+    text-decoration: underline;
+    color: #000;
+    font-size: 14px;
 }
-.divider span{
-    font-size: 12px;
-    font-weight: 300;
+nav img{
+    width: 30px;
+    object-fit: cover;
 }
 
-.projects{
-    margin: 100px 0;
+header{
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #000;
+    position: relative;
+    padding: 50px var(--page-pad) 30px var(--page-pad);
+}
+header h1{
+    font-size: clamp(20px,4vw,40px);
+    margin-bottom: 250px;
+    font-weight: 600;
+}
+.socials{
+    display: flex;
+    gap: 20px
+}
+.socials a{
+    font-size: 12px;
+    background: #000;
+    border: 1px solid #000;
+    border-radius: 30px;
+    padding: 8px 20px;
+    color: #000;
+    transition: 0.3s ease;
+    box-shadow: 0px 35px inset #FCFBF4;
+}
+.socials a:hover{
+    box-shadow: 0px 0px inset #FCFBF4;
+    color: #FCFBF4;
+}
+header img{
+    width: 70px;
+    position: absolute;
+    z-index: -1;
+    right: var(--page-pad);
+    bottom: 30px;
+}
+
+.app-list{
+    padding: 0 var(--page-pad);
+    margin-bottom: 50px;
+}
+.app-list,.project-list{
     display: grid;
     grid-template-columns: repeat(2, minmax(200px, 1fr));
     gap: 30px;
 }
-.projects .project{
-    width:100%;
+.app-list .app-box{
+    margin: 20px;
+    border-right: 1px solid #000;
+    color: #000;
+    position: relative;
 }
-.projects .project img,.projects .project video{
+.app-list .app-box .num-act{
+    width: 50px;
+    height: 20px;
+    position: absolute;
+    top: 15px;
+    left: 0;
+    background: #ccc;
+    transition: 0.3s ease;
+    z-index: -1;
+}
+.app-list .app-box .app-num{
+    font-size: 20px;
+    font-weight: 900;
+    opacity: 0.5;
+    margin-bottom: 30px;
+}
+.app-list .app-box h2{
+    font-size: 32px;
+    font-weight: 500;
+}
+.app-list .app-box p{
+    font-size: 12px;
+    font-weight: 400;
+    opacity: 0.7;
+    margin-bottom: 20px;
+}
+.app-list .app-box .app-tags{
+    display: flex;
+    gap: 20px
+}
+.app-list .app-box .app-tag{
+    font-size: clamp(10px,2vw,12px);
+    padding: 5px 12px;
+    border: 1px solid #000;
+    background: #B4DD2F;
+    border-radius: 30px;
+}
+.app-list .app-box:hover > .num-act{
+    background: #B4DD2F;
+}
+
+.projects{
+    background: #000;
+    width: 100%;
+    padding: 100px var(--page-pad);
+    color: #FCFBF4;
+}
+.projects h2{
+    font-size: clamp(20px,3vw,40px);
+    margin-bottom: 50px;
+}
+.project-list .project-box{
+    width: 100%;
+}
+.project-list .project-box img,.project-list .project-box video{
     width: 100%;
     aspect-ratio: 1 / 0.7;
     object-fit: cover;
 }
-.projects .project .info{
+.project-list .project-box .info{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 10px;
+}
+.project-list .project-box .info h3{
+    font-size: clamp(14px,3vw,16px);
+    font-weight: 500;
+}
+.project-list .project-box .info span{
+    font-size: 12px;
+    font-weight: 300;
+    opacity: 0.7;
+}
+
+.services{
+    width: 100%;
+    position: relative;
+    min-height: 210vh;
+    position: relative;
+}
+.services .service-layer{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 30px var(--page-pad);
+    color: #000;
+    height: 70vh;
+}
+.services .serve1{
+    background: #B4DD2F;
+}
+.services .serve2{
+    background: #DDA32F;
+}
+.services .serve3{
+    background: #2FDD8F;
+}
+.services .service-layer span{
+    font-size: 12px;
+    opacity: 0.7;
+}
+.services .service-layer h2{
+    margin-top: 50px;
+    font-size: clamp(20px,3vw,32px);
+    font-weight: 400;
+}
+.services .service-layer p{
+    margin-top: 10px;
+    font-size: 12px;
+    max-width: 380px;
+}
+.services .service-layer .bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 30px;
+    left:0;
+    width: 100%;
+    padding: 0 var(--page-pad);
+}
+.services .service-layer .bottom .num{
+    font-size: 120px;
+    font-weight: 900;
+    opacity: 0.5;
+}
+
+
+footer{
+    width: 100%;
+    padding: 50px var(--page-pad) 0 var(--page-pad);
+}
+footer h2{
+    font-size: clamp(20px,3vw,32px);
+}
+footer p{
+    font-size: 12px;
+    opacity: 0.8;
+    margin-bottom: 200px;
+}
+footer p a{
+    color: #000;
+    text-decoration: underline;
+}
+footer .bottom{
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
 }
-.projects .project .info h2{
-    font-size: clamp(14px,3vw,16px);
-    font-weight: 500;
-}
-.projects .project .info span{
+footer .bottom span{
     font-size: 12px;
-    font-weight: 300;
 }
 
-footer .socials{
-    margin-top: 50px;
-    margin-bottom: 200px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: flex-start;
-}
-footer .socials a,footer .contact p{
-    color: #000;
-    font-weight: 500;
-    font-size: clamp(14px,5vw,20px);
-}
-footer .contact a{
-    color: #000;
-    font-weight: 700;
-    font-size: clamp(24px, 5vw, 80px);
-    text-decoration: none;
+
+
+@keyframes rotateImg {
+    0%{transform: rotate(0);}
+    100%{transform: rotate(360deg);}
 }
 
-:root {
-    --size: 200px;
-}
-.perspective {
-    z-index: -1;
-    position: absolute;
-    top: 55%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    perspective: 800px;
-    perspective-origin: 60% -200px;
-}
-.box {  
-    width: var(--size);
-    aspect-ratio: 1;  
-    position: relative;
-    transform-style: preserve-3d;
-    transform-origin: 100px bottom -100px;
-    animation: rotate 4s linear infinite;
-}
-.face {
-    position: absolute;
-    width: var(--size);
-    aspect-ratio: 1;
-    background-color: hsl(39,100%,var(--lightness));
-    transform-style: preserve-3d;
-}
-.face.front {
-    --lightness: 66%;
-}
-.face.bottom {
-    --lightness: 74%;
-    top: 100%;
-    transform-origin: top;
-    transform: rotateX(-90deg);
-}
-.face.top {
-    --lightness: 74%;
-    bottom: 100%;
-    transform-origin: bottom;
-    transform: rotateX(90deg);
-}
-.face.back {
-    --lightness: 78%;
-    bottom: 50%;
-    transform-origin: center 150px -100px;
-    transform: rotateX(180deg);
-}
-.face.right {
-    --lightness: 70%;
-    left: 100%;
-    transform-origin: left;
-    transform: rotateY(90deg);
-}
-.face.left {
-    --lightness: 70%;
-    right: 100%;
-    transform-origin: right;
-    transform: rotateY(-90deg);
-}
-@keyframes rotate {
-    from {
-        transform: rotate(0);
-    }
-    to {
-        transform: rotateY(360deg);
-    }
-}
-
-@media (max-width: 580px) {
-    .projects{
+@media (max-width: 780px) {
+    .app-list,.project-list{
         grid-template-columns: repeat(1, 1fr);
     }
-}
-@media (max-width: 400px) {
-    :root {
-        --size: 100px;
-    }
-    .face.back {
-        bottom: 200%;
-        transform-origin: center 150px -50px;
-    }
-    .box {  
-        transform-origin: 50px bottom -50px;
+    footer .bottom{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px
     }
 }
