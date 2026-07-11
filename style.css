@@ -10,287 +10,169 @@
     background: #000;
     color: white;
 }
-:root{
-    --page-pad: clamp(20px,calc((100% - 1200px) / 2),calc((100% - 1200px) / 2));
-}
-a{text-decoration: none;}
-.asset1{
-    animation-name: rotateImg;
-    animation-duration: 5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
-
+a{color: #111;}
 body{
     overflow-x: hidden;
-    width: 100%;
-    background-color: #FCFBF4;
-    padding: 50px 0;
-    background: #FCFBF4;
-}
-.load-screen{
-    position: fixed;
-    top:0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: #000;
-    color: #FCFBF4;
-    z-index: 1000;
-    display: grid;
-    place-items: center;
-    font-size: 14px;
-    font-weight: 500;
-}
-.load-screen p{
-    display: flex;
 }
 
 nav{
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 60px;
-    background: #FCFBF4;
-    padding: 0 var(--page-pad);
+    background: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 999;
+    padding: 0 clamp(20px,1vw,1vw);
+}
+nav p{
+    font-size: clamp(14px,0.7vw,0.7vw);
+    font-weight: 500;
 }
 nav a{
-    text-decoration: underline;
-    color: #000;
-    font-size: 14px;
+    font-size: clamp(14px,0.7vw,0.7vw);
+    font-weight: 500;
 }
-nav img{
-    width: 30px;
-    object-fit: cover;
-}
-
 header{
-    width: 100%;
-    padding-top: 50px;
-    padding-bottom: 30px;
-    border-bottom: 1px solid #000;
+    height: calc(100vh - 60px);
+    padding: 0 clamp(20px,1vw,1vw);
     position: relative;
-    padding: 50px var(--page-pad) 30px var(--page-pad);
-}
-header h1{
-    font-size: clamp(20px,4vw,40px);
-    margin-bottom: 250px;
-    font-weight: 600;
-}
-.socials{
     display: flex;
-    gap: 20px
-}
-.socials a{
-    font-size: 12px;
-    background: #000;
-    border: 1px solid #000;
-    border-radius: 30px;
-    padding: 8px 20px;
-    color: #000;
-    transition: 0.3s ease;
-    box-shadow: 0px 35px inset #FCFBF4;
-}
-.socials a:hover{
-    box-shadow: 0px 0px inset #FCFBF4;
-    color: #FCFBF4;
 }
 header img{
-    width: 70px;
     position: absolute;
-    z-index: -1;
-    right: var(--page-pad);
-    bottom: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-65%);
 }
-
-.app-list{
-    padding: 0 var(--page-pad);
-    margin-bottom: 50px;
+header .bottom-info{
+    width: 100%;
+    font-size: clamp(12px,0.6vw,0.6vw);
+    margin-bottom: 30px;
+    align-self: flex-end;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 }
-.app-list,.project-list{
-    display: grid;
-    grid-template-columns: repeat(2, minmax(200px, 1fr));
+header .bottom-info p{
+    font-weight: 600;
+}
+header .socials{
+    display: flex;
     gap: 30px;
 }
-.app-list .app-box{
-    margin: 20px;
-    border-right: 1px solid #000;
-    color: #000;
-    position: relative;
-}
-.app-list .app-box .num-act{
-    width: 50px;
-    height: 20px;
-    position: absolute;
-    top: 15px;
-    left: 0;
-    background: #ccc;
-    transition: 0.3s ease;
-    z-index: -1;
-}
-.app-list .app-box .app-num{
-    font-size: 20px;
-    font-weight: 900;
-    opacity: 0.5;
+
+.line-section{
+    height: 1px;
+    background: #111;
+    margin: 0 clamp(20px,1vw,1vw);
     margin-bottom: 30px;
-}
-.app-list .app-box h2{
-    font-size: 32px;
-    font-weight: 500;
-}
-.app-list .app-box p{
-    font-size: 12px;
-    font-weight: 400;
-    opacity: 0.7;
-    margin-bottom: 20px;
-}
-.app-list .app-box .app-tags{
-    display: flex;
-    gap: 20px
-}
-.app-list .app-box .app-tag{
-    font-size: clamp(10px,2vw,12px);
-    padding: 5px 12px;
-    border: 1px solid #000;
-    background: #B4DD2F;
-    border-radius: 30px;
-}
-.app-list .app-box:hover > .num-act{
-    background: #B4DD2F;
+    opacity: 0.3;
 }
 
-.projects{
-    background: #000;
-    width: 100%;
-    padding: 100px var(--page-pad);
-    color: #FCFBF4;
+.container-list{
+    padding: 0 clamp(20px,1vw,1vw);
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 100px;
 }
-.projects h2{
-    font-size: clamp(20px,3vw,40px);
-    margin-bottom: 50px;
+.container-list span{
+    font-size: clamp(12px,0.6vw,0.6vw);
+    font-weight: 600;
+    width: 20%;
 }
-.project-list .project-box{
-    width: 100%;
+.container-list .block-lists{
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
 }
-.project-list .project-box img,.project-list .project-box video{
+.container-list .block-lists .box-item video{
     width: 100%;
-    aspect-ratio: 1 / 0.7;
     object-fit: cover;
 }
-.project-list .project-box .info{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 10px;
+.container-list .block-lists .box-item p{
+    font-size: clamp(14px,0.7vw,0.7vw);
+    font-weight: 600;
+    margin: 5px 0;
 }
-.project-list .project-box .info h3{
-    font-size: clamp(14px,3vw,16px);
-    font-weight: 500;
-}
-.project-list .project-box .info span{
-    font-size: 12px;
+.container-list .block-lists .box-item span{
+    font-size: clamp(12px,0.6vw,0.6vw);
+    display: block;
     font-weight: 300;
-    opacity: 0.7;
-}
-
-.services{
     width: 100%;
-    position: relative;
-    min-height: 210vh;
-    position: relative;
+    text-align: justify;
 }
-.services .service-layer{
-    position: sticky;
-    top: 0;
-    width: 100%;
-    padding: 30px var(--page-pad);
-    color: #000;
-    height: 70vh;
+.container-list .custom-block{
+    width: 70%;
 }
-.services .serve1{
-    background: #B4DD2F;
-}
-.services .serve2{
-    background: #DDA32F;
-}
-.services .serve3{
-    background: #2FDD8F;
-}
-.services .service-layer span{
-    font-size: 12px;
-    opacity: 0.7;
-}
-.services .service-layer h2{
-    margin-top: 50px;
-    font-size: clamp(20px,3vw,32px);
-    font-weight: 400;
-}
-.services .service-layer p{
+.container-list .custom-block .social-list{
+    display: flex;
+    gap: 30px;
     margin-top: 10px;
-    font-size: 12px;
-    max-width: 380px;
 }
-.services .service-layer .bottom{
+.container-list .custom-block .social-list a{
+    font-size: clamp(14px,0.7vw,0.7vw);
+    font-weight: 300;
+}
+.container-list .short-bio{
+    font-size: clamp(24px,1vw,1vw);
+    width: 70%;
+    text-align: justify;
+}
+.container-list .block-long{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    bottom: 30px;
-    left:0;
-    width: 100%;
-    padding: 0 var(--page-pad);
+    width: 70%;
+    gap: 30px;
+    flex-wrap: wrap;
 }
-.services .service-layer .bottom .num{
-    font-size: 120px;
-    font-weight: 900;
-    opacity: 0.5;
+.circle-label{
+    padding: 8px 20px;
+    background: #fff;
+    border: 1px solid #111;
+    border-radius: 50px;
+    font-size: clamp(12px,0.6vw,0.6vw);
+    font-weight: 600;
 }
 
-
-footer{
+.memes{
     width: 100%;
-    padding: 50px var(--page-pad) 0 var(--page-pad);
-}
-footer h2{
-    font-size: clamp(20px,3vw,32px);
-}
-footer p{
-    font-size: 12px;
-    opacity: 0.8;
-    margin-bottom: 200px;
-}
-footer p a{
-    color: #000;
-    text-decoration: underline;
-}
-footer .bottom{
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    gap: 30px
 }
-footer .bottom span{
-    font-size: 12px;
-}
-
-
-
-@keyframes rotateImg {
-    0%{transform: rotate(0);}
-    100%{transform: rotate(360deg);}
+.memes img{
+    align-self: flex-start;
+    width: clamp(200px,30vw,30vw);
 }
 
-@media (max-width: 780px) {
-    .app-list,.project-list{
-        grid-template-columns: repeat(1, 1fr);
-    }
-    footer .bottom{
+@media (max-width: 750px) {
+    header .bottom-info{
         flex-direction: column;
         align-items: flex-start;
-        gap: 30px
+    }
+    header .bottom-info .socials{
+        margin-top: 10px;
+    }
+
+    .container-list span{
+        width: 100%;
+    }
+    .container-list{
+        flex-direction: column;
+    }
+    .container-list .block-lists{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    .container-list .block-long, .container-list .custom-block,.container-list .short-bio{
+        width: 100%;
+    }
+
+    .container-list .custom-block .social-list{
+        gap: 10px;
+        flex-direction: column;
     }
 }
