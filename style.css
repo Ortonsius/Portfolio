@@ -139,7 +139,8 @@ header .socials{
 .memes{
     width: 100%;
     display: flex;
-    gap: 30px
+    gap: 30px;
+    overflow-x: hidden;
 }
 .memes img{
     align-self: flex-start;
