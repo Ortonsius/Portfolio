@@ -32,43 +32,23 @@ nav a{
     font-size: clamp(14px,0.7vw,0.7vw);
     font-weight: 500;
 }
-header{
-    height: calc(100vh - 60px);
-    padding: 0 clamp(20px,1vw,1vw);
-    position: relative;
+nav .nav-link{
     display: flex;
-}
-header img{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-65%);
-    width: 70%;
-    max-width: 300px;
-}
-header .bottom-info{
-    width: 100%;
-    font-size: clamp(12px,0.6vw,0.6vw);
-    margin-bottom: 30px;
-    align-self: flex-end;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-header .bottom-info p{
-    font-weight: 600;
-}
-header .socials{
-    display: flex;
-    gap: 30px;
+    gap: 20px;
 }
 
-.line-section{
-    height: 1px;
-    background: #111;
-    margin: 0 clamp(20px,1vw,1vw);
-    margin-bottom: 30px;
-    opacity: 0.3;
+header{
+    padding: 50px clamp(20px,1vw,1vw);
+    width: 100%;
+    margin-bottom: 50px;
+}
+header h1{
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 50px;
+}
+header video{
+    width: 100%;
 }
 
 .container-list{
@@ -82,7 +62,21 @@ header .socials{
 .container-list span{
     font-size: clamp(12px,0.6vw,0.6vw);
     font-weight: 600;
-    width: 20%;
+    width: 30%;
+}
+.container-list .about-block{
+    width: 70%;
+}
+.container-list .short-bio{
+    text-align: justify;
+    font-size: clamp(20px,1vw,1vw);
+    margin-bottom: 30px;
+}
+.container-list .block-long{
+    display: flex;
+    width: 70%;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 .container-list .block-lists{
     width: 70%;
@@ -112,23 +106,13 @@ header .socials{
 .container-list .custom-block .social-list{
     display: flex;
     gap: 30px;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 .container-list .custom-block .social-list a{
     font-size: clamp(14px,0.7vw,0.7vw);
-    font-weight: 300;
+    font-weight: 500;
 }
-.container-list .short-bio{
-    font-size: clamp(24px,1vw,1vw);
-    width: 70%;
-    text-align: justify;
-}
-.container-list .block-long{
-    display: flex;
-    width: 70%;
-    gap: 30px;
-    flex-wrap: wrap;
-}
+
 .circle-label{
     padding: 8px 20px;
     background: #fff;
@@ -138,28 +122,34 @@ header .socials{
     font-weight: 600;
 }
 
-.memes{
-    width: 100%;
-    display: flex;
-    gap: 30px;
-    overflow-x: hidden;
+.line-section{
+    height: 1px;
+    background: #111;
+    margin: 0 clamp(20px,1vw,1vw);
+    margin-bottom: 30px;
+    opacity: 0.3;
 }
-.memes img{
-    align-self: flex-start;
-    width: clamp(200px,30vw,30vw);
+
+.container-list .foot-name{
+    font-size: 14px;
+    font-weight: 500;
+}
+.container-list .foot-role{
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 5px;
+}
+
+.foot-label{
+    width: 100%;
+    font-size: 18vw;
+    text-align: center;
 }
 
 @media (max-width: 750px) {
-    header .bottom-info{
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    header .bottom-info .socials{
-        margin-top: 10px;
-    }
-
     .container-list span{
         width: 100%;
+        margin-bottom: 10px;
     }
     .container-list{
         flex-direction: column;
@@ -170,7 +160,7 @@ header .socials{
         grid-template-columns: repeat(2, 1fr);
         gap: 30px;
     }
-    .container-list .block-long, .container-list .custom-block,.container-list .short-bio{
+    .container-list .block-long, .container-list .custom-block,.container-list .about-block{
         width: 100%;
     }
 
